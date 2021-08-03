@@ -1,0 +1,248 @@
+.container {
+    padding-bottom: 1em;
+}
+
+.header {
+    background-color: #0f53af;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-logo {
+    color: white;
+    padding-left: 1em;
+    margin: 0;
+}
+
+.header-logo:hover, .header-item:hover {
+    color: #a0aec4;
+}
+
+.header-items {
+    display: flex;
+}
+
+.header-item {
+    padding-right: 1.5em;
+    color:white;
+}
+
+.banner {
+    background-color: dimgrey;
+}
+
+.banner img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    max-width: 100%;
+}
+
+.content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    height: fit-content;
+    padding-bottom: 1em;
+    background-color: white;
+}
+
+.title {
+    text-align: left;
+    color: #0f53af;
+    padding-top: 0.5em;
+    padding-left: 1em;
+}
+
+h1 {
+    margin-top: 0em;
+    margin-bottom: 0.5em;
+}
+
+.sub-title {
+    text-align: center;
+}
+
+.form {
+    margin-left: 1em;
+    margin-right: 1em;
+    background-color: grey;
+}
+
+.footer {
+    background-color: #949292;
+    padding-left: 1.5em;
+    padding-top: 1em;
+    padding-bottom: 2em;
+}
+
+.footer-title {
+    color: white;
+    font-size: x-large;
+    font-weight: 700;
+}
+
+.footer-subtitle {
+    color: white;
+    font-size: medium;
+    font-weight: 500;
+    padding-top: 1em;
+}
+
+.input {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.input-no-hover {
+    text-align:center;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.input:hover {
+    background-color: rgb(180, 180, 180);
+}
+
+.input-label {
+    color: white;
+    font-size: medium;
+    padding-right: 1em;
+}
+
+.input input:focus {
+    background-color: antiquewhite;
+}
+
+.latest-figures-box {
+    background-color: #AF272f;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border-radius: 5px;
+    height: 50px;
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: width 0.75s, height 0.75s;
+}
+
+.latest-figures-box:hover {
+    width: 500px;
+    height: 200px;
+    transition: width 0.75s, height 0.75s;
+}
+
+.latest-figures-title {
+    text-align: center;
+    color: white;
+
+}
+
+.latest-figures-icon {
+    padding-right: 0.5em;
+}
+
+.symptom {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.symptom:hover {
+    background-color: rgb(209, 208, 208);
+}
+
+.symptom-label {
+    text-align: left;
+}
+
+.dropdown {
+    display: none;
+}
+
+.exposure-title {
+    font-size: larger;
+    margin-left: 1em;
+}
+
+.exposure-content {
+    margin-left: 1em;
+    margin-bottom: 1em;
+}
+
+.exposure-site-search-box {
+    background-color:#ededee;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.exposure-site-search-bar {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    width: inherit;
+    border: none;
+}
+
+#map {
+    height: 500px;
+    margin-left: 1em;
+    margin-right: 1em;
+    min-width: 10vh;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit; 
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: #dadada;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+button {
+    background-color: #0f53af;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: large;
+    padding-left: 1em;
+    padding-right: 1em;
+    height: 30px;
+}
+
+button:hover {
+    background-color: #5b97eb;
+}
+
+hr {
+    margin: 0;
+    margin-left: 1em;
+    margin-right: 1em;
+    border: 1px solid rgb(226, 226, 226);
+}
+

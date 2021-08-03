@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen and (min-width: 900px)" type="text/css" href="widescreen.css"/>
+    <link rel="stylesheet" media="screen and (max-width: 900px)" type="text/css" href="smallscreen.css"/>
+    <link rel="stylesheet" media="screen and (max-width: 750px)" type="text/css" href="smallerscreen.css"/>
+    <title>Symptoms Checker</title>
+</head>
+<body>
+    <!--Header-->
+    <div class="header">
+        <!--Logo-->
+        <h1 class="header-logo">
+            <a href="index.html">
+                COVID-19 Hub
+            </a>
+        </h1>
+        <!--Menu Items-->
+        <div class="header-items">
+            <!--Hotspot Map-->
+            <h3 class="header-item">
+                <a href="hotspot-map.html">
+                    Hotspot Map
+                </a>
+            </h3>
+            <!--Symptoms Checker-->
+            <h3 class="header-item">
+                <a href="symptoms-checker.html">
+                    Symptoms Checker
+                </a>
+            </h3>
+            <!--Check in-->
+            <h3 class="header-item">
+                <a href="index.html">
+                    Check-In
+                </a>
+            </h3>
+            <!--Drop Down-->
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">...</button>
+                <div id="myDropdown" class="dropdown-content">
+                  <a href="hotspot-map.html">Hotspot Map</a>
+                  <a href="symptoms-checker.html">Symptoms Checker</a>
+                  <a href="index.html">Check-In</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Container-->
+    <div class="container">
+        <!--Image Banner-->
+        <div class="banner">
+            <img src="https://www.bayside.vic.gov.au/sites/default/files/styles/event_2_0_slider_-_1024x422/public/business_and_commerce/dpc_20001_check-in_social.jpg?itok=XbWomvM5"/>
+        </div>
+
+        <h2 id="message-label" style="display:none; text-align: center;">Messsage Goes Here</h2>
+
+        <!--Content-->
+        <div class="content">
+            <!--Title-->
+            <div class="title">
+                <h1>Symptoms Checker</h1>
+            </div>
+            
+            <div class="sub-title">
+                Have you experienced any of the following symptoms?
+            </div>
+            
+            <!--Symptoms-->
+            <div class="symptoms-form">
+                <!--Coughing-->
+                <div class="symptom">
+                    <input type="checkbox" id="coughing">
+                    <label class="symptom-label">Coughing</label>
+                </div>
+                <hr>
+                <!--Fever-->
+                <div class="symptom">
+                    <input type="checkbox" id="fever">
+                    <label class="symptom-label">Fever</label>
+                </div>
+                <hr>
+                <!--Fatigued-->
+                <div class="symptom">
+                    <input type="checkbox" id="fatigued">
+                    <label class="symptom-label">Fatigued</label>
+                </div>
+                <hr>
+                <!--Sore Throat-->
+                <div class="symptom">
+                    <input type="checkbox" id="sore-throat">
+                    <label class="symptom-label">Sore Throat</label>
+                </div>
+                <hr>
+                <!--Loss of Taste-->
+                <div class="symptom">
+                    <input type="checkbox" id="loss-taste">
+                    <label class="symptom-label">Loss of Taste</label>
+                </div>
+                <hr>
+                <!--Loss of Smell-->
+                <div class="symptom">
+                    <input type="checkbox" id="loss-smell">
+                    <label class="symptom-label">Loss of Smell</label>
+                </div>
+                <hr>
+                <!--Headache-->
+                <div class="symptom">
+                    <input type="checkbox" id="headache">
+                    <label class="symptom-label">Headache</label>
+                </div>
+                <hr>
+                <!--Difficulty Breathing-->
+                <div class="symptom">
+                    <input type="checkbox" id="difficulty-breathing">
+                    <label class="symptom-label">Difficulty Breathing</label>
+                </div>
+                <hr>
+                <!--Chest Pain-->
+                <div class="symptom">
+                    <input type="checkbox" id="chest-pain">
+                    <label class="symptom-label">Chest Pain</label>
+                </div>
+                <hr>
+                <!-- Submit Button -->
+                <div class="input-no-hover">
+                    <button type="button" id="submit-button">Submit</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+<script src="script.js"></script>
+<script src="symptoms.js"></script>
+</html>
