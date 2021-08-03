@@ -1,17 +1,12 @@
 .container {
-    background-color: rgb(226, 226, 226);
     padding-bottom: 1em;
 }
 
 .header {
-    background-color: #3c4a60;
+    background-color: #0f53af;
     padding-top: 0em;
     padding-bottom: 0em;
-    border: solid;
-    border-color: #a0aec4;
-    border-top: none;
-    border-left: none;
-    border-right: none;
+    border: none;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -39,6 +34,10 @@
 
 .banner {
     background-color: dimgrey;
+}
+
+.hide {
+    display: none;
 }
 
 .banner img {

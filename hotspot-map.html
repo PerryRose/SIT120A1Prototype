@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" media="screen and (min-width: 900px)" type="text/css" href="widescreen.css"/>
+    <link rel="stylesheet" type="text/css" href="widescreen.css"/>
+    <!-- <link rel="stylesheet" media="screen and (min-width: 900px)" type="text/css" href="widescreen.css"/>
     <link rel="stylesheet" media="screen and (max-width: 900px)" type="text/css" href="smallscreen.css"/>
-    <link rel="stylesheet" media="screen and (max-width: 750px)" type="text/css" href="smallerscreen.css"/>
+    <link rel="stylesheet" media="screen and (max-width: 750px)" type="text/css" href="smallerscreen.css"/> -->
     <title>Hotspot Map</title>
 </head>
 <body>
@@ -38,7 +39,7 @@
                     Check-In
                 </a>
             </h3>
-            <!--Drop Down-->
+            <!--Drop Down, hidden by default, only shown when screen small (Disabled for this prototype)-->
             <div class="dropdown">
                 <button onclick="myFunction()" class="dropbtn">...</button>
                 <div id="myDropdown" class="dropdown-content">
@@ -55,12 +56,26 @@
 
         <!--Latest Figures -->
         <div class="latest-figures-box" id="latest-figures">
+            <!--Icon-->
             <img class="latest-figures-icon" 
-            src="img/warning-256.png" width="12%">
+            src="img/warning-256.png" width="12%" id="warning-icon">
+            <!--Title-->
             <h4 class="latest-figures-title" id="latest-figures-title">
                 Latest Figures
             </h4>
-            <h4 class="expanded-contents">Hello</h4>
+            <!--Expanded Content, hidden by default-->
+            <table class="expanded-content hide" id="expanded-content">
+                <tr>
+                    <!--Current Date-->
+                    <th style="padding-bottom: 1em;">3 Aug 2021</th>
+                </tr>
+                <tr>
+                    <!--COVID information-->
+                    <th><h1>12</h1><br> new cases</th>
+                    <th><h1>250</h1><br> total cases</th>
+                    <th><h1>35.6k</h1><br> tests received</th>
+                </tr>
+            </table>
         </div>
 
         <!--Content-->
@@ -86,9 +101,8 @@
                 </button>
             </div>
 
-            <div id="hotspotTable">
-
-            </div>
+            <!--Exposure Site List-->
+            <div id="hotspotTable"></div>
 
         </div>
     </div>

@@ -1,3 +1,4 @@
+// Class for Hotspot Exposure Sites
 class HotSpot {
     constructor(suburb, locationName, address, exposureTime, exposureDate, notes, tier, lat, lng) {
         this.suburb = suburb;
@@ -12,6 +13,7 @@ class HotSpot {
     }
 }
 
+// An array of the current exposure sites
 const hotSpots = [
     new HotSpot("Melbourne", 
                 "Flinders Street Station", 
@@ -39,56 +41,101 @@ const hotSpots = [
                 -38.032070061000695, 145.34560744284525)
 ];
 
+// Google Maps JavaScript API initialisation
 function initMap() {
+    // Where the centre of the map should be
     const centreCoordinates = { lat: -37.81100320947774, lng: 145.062455385037 };
 
+    // The map object
     const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 9,
       center: centreCoordinates,
       mapTypeId: "terrain",
     });
 
-    let htmlString = "<table>";
+    // The string used for the exposure site list
+    let htmlString = `<table class="exposure-list-table">`;
 
+    // For every hotspot
     hotSpots.forEach(x => {
+        // Create a marker on the map
         const _ = new google.maps.Marker({
             position: {lat: x.lat, lng: x.lng},
             map: map
         });
 
-        htmlString += `<tr>`;
-
-        htmlString += `<th><div class="exposure-title">${x.suburb}</div></th>`;
-
-        htmlString += `</tr>`;
-
-        htmlString += `<tr>`;
-
-        htmlString += `<th><div class="exposure-content" style="margin-left: 1em;">${x.locationName}<br>${x.address}</div></th>`;
-
-        htmlString += `<th><div class="exposure-content">${x.exposureDate} at ${x.exposureTime}</div></th>`;
-
-        htmlString += `<th><div class="exposure-content">${x.notes}</div></th>`;
-
-        htmlString += `<th><div class="exposure-content" style="margin-right: 1em;">${x.tier}</div></th>`;
-
-        htmlString += `</tr>`;
+        // Append data to the string
+        htmlString += `
+            <tr>
+                <th>
+                    <div class="exposure-title">
+                        ${x.suburb}
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <div class="exposure-content" style="margin-left: 1em;">
+                        ${x.locationName}
+                        <br>
+                        ${x.address}
+                    </div>
+                </th>
+                <th>
+                    <div class="exposure-content">
+                        ${x.exposureDate} at ${x.exposureTime}
+                    </div>
+                </th>
+                <th>
+                    <div class="exposure-content">
+                        ${x.notes}
+                    </div>
+                </th>
+                <th>
+                    <div class="exposure-content" style="margin-right: 1em;">
+                        ${x.tier}
+                    </div>
+                </th>
+            </tr>`;
 
     });
 
+    // Find hotspot table
     let divContainer = document.getElementById('hotspotTable');
+
+    // Add html string to table
     divContainer.innerHTML = htmlString += `</table>`;
 }
 
+// Variables for Latest Figures component
+let warningIcon = document.getElementById('warning-icon');
 let latestFiguresTitle = document.getElementById('latest-figures-title');
 let latestFiguresBox = document.getElementById('latest-figures');
+let expandedContent = document.getElementById('expanded-content');
 
+// Add event listener for mouse hover
 latestFiguresBox.addEventListener('mouseenter', expandLatestFigures);
+latestFiguresBox.addEventListener('mouseleave', closeLatestFigures);
 
+// Expand latest figures
 function expandLatestFigures() {
-    latestFiguresTitle.innerHTML += `<br>12 new cases<br>250 total cases<br>34.5k tests received`;
+    // Wait 600ms for expansion, then add and hide appropriate elements
+    //sleep(600).then(() => {
+        warningIcon.classList.add('hide');
+        latestFiguresTitle.classList.add('hide');
+        expandedContent.classList.remove('hide');
+    //});
 }
 
-latestFiguresBox.addEventListener('mouseleave', function(e) {
-    latestFiguresTitle.textContent = "Latest Figures";
-});
+// Close Latest figures
+function closeLatestFigures() {
+    // Add and hide appropriate elements
+    warningIcon.classList.remove('hide');
+    latestFiguresTitle.classList.remove('hide');
+    expandedContent.classList.add('hide');
+}
+
+// Function for sleeping
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}

@@ -147,7 +147,21 @@ h1 {
     transition: width 0.75s, height 0.75s;
 }
 
-.expanded-contents {
+.expanded-content th {
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.expanded-content {
+    color: white;
+    
+}
+
+.expanded-content th {
+    vertical-align: middle;
+}
+
+.hide {
     display: none;
 }
 
@@ -191,7 +205,7 @@ h1 {
     font-weight: 500;
 }
 
-th {
+.exposure-list-table th {
     vertical-align: top;
 }
 
