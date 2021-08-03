@@ -147,10 +147,13 @@ h1 {
     transition: width 0.75s, height 0.75s;
 }
 
+.expanded-contents {
+    display: none;
+}
+
 .latest-figures-title {
     text-align: center;
     color: white;
-
 }
 
 .latest-figures-icon {
@@ -178,28 +181,37 @@ h1 {
 
 .exposure-title {
     font-size: larger;
-    margin-left: 1em;
+    margin-top: 1em;
+    margin-left: 16px;
+    text-align: left;
 }
 
 .exposure-content {
-    margin-left: 1em;
-    margin-bottom: 1em;
+    text-align: left;
+    font-weight: 500;
+}
+
+th {
+    vertical-align: top;
 }
 
 .exposure-site-search-box {
     background-color:#ededee;
     margin-left: 1em;
     margin-right: 1em;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
 }
 
 .exposure-site-search-bar {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
-    margin-left: 1em;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    width: inherit;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+
     border: none;
+    font-size: large;
 }
 
 #map {
@@ -233,6 +245,7 @@ button {
     padding-left: 1em;
     padding-right: 1em;
     height: 30px;
+    margin-right: 0.5em;
 }
 
 button:hover {
