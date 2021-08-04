@@ -209,12 +209,20 @@ h1 {
     vertical-align: top;
 }
 
+.exposre-site-search-title {
+    margin-left: 0em;
+    text-align: center;
+    font-size: large;
+    font-weight: 700;
+    color: #000000;
+}
+
 .exposure-site-search-box {
     background-color:#ededee;
     margin-left: 1em;
     margin-right: 1em;
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 4fr;
     align-items: center;
 }
 

@@ -41,6 +41,9 @@ const hotSpots = [
                 -38.032070061000695, 145.34560744284525)
 ];
 
+// Filtered hot spots contain all hot spots by default
+let filteredHotSpots = hotSpots;
+
 // Google Maps JavaScript API initialisation
 function initMap() {
     // Where the centre of the map should be
@@ -53,17 +56,25 @@ function initMap() {
       mapTypeId: "terrain",
     });
 
-    // The string used for the exposure site list
-    let htmlString = `<table class="exposure-list-table">`;
-
-    // For every hotspot
+    // For every existing hotspot
     hotSpots.forEach(x => {
         // Create a marker on the map
         const _ = new google.maps.Marker({
             position: {lat: x.lat, lng: x.lng},
             map: map
         });
+    });
 
+    // Set up exposure site list
+    initExposureSiteList();
+}
+
+function initExposureSiteList() {
+    // The string used for the exposure site list
+    let htmlString = `<table class="exposure-list-table">`;
+
+    // For every filtered hotspot
+    filteredHotSpots.forEach(x => { //hotSpots.forEach(x => {
         // Append data to the string
         htmlString += `
             <tr>
@@ -97,7 +108,6 @@ function initMap() {
                     </div>
                 </th>
             </tr>`;
-
     });
 
     // Find hotspot table
@@ -107,11 +117,58 @@ function initMap() {
     divContainer.innerHTML = htmlString += `</table>`;
 }
 
+// Search Bar Feature
+let searchBar = document.getElementById('exposure-site-search-bar');
+
+// Add event listener for key-up
+searchBar.addEventListener('keyup', updateSearchList);
+
+// Function to update the exposure site list based on search bar contents
+function updateSearchList() {
+    // Get search term
+    let searchTerm = this.value;
+
+    // If search term is empty
+    if (searchTerm.trim() === "") {
+        // Show all exposure sites
+        filteredHotSpots = hotSpots;
+    }
+    else {
+        // Empty hot spots
+        filteredHotSpots = [];
+
+        // Search for hotspots
+        hotSpots.forEach(x => {
+
+            // If location name or address contains the search term
+            if (x.locationName.toLowerCase().includes(searchTerm.toLowerCase()) || 
+            x.address.toLowerCase().includes(searchTerm.toLowerCase())) {
+                // Add hotspot to filtered hot spots
+                filteredHotSpots.push(x);
+            }
+        });
+    }
+
+    // Re-initialise exposure site list with new array
+    initExposureSiteList();
+}
+
 // Variables for Latest Figures component
+class CovidFigures {
+    constructor(newCases, totalCases, testsReceived) {
+        this.newCases = newCases;
+        this.totalCases = totalCases;
+        this.testsReceived = testsReceived;
+    }
+}
+
+const latestFigures = new CovidFigures(12, 250, "35.6k")
+
 let warningIcon = document.getElementById('warning-icon');
 let latestFiguresTitle = document.getElementById('latest-figures-title');
 let latestFiguresBox = document.getElementById('latest-figures');
 let expandedContent = document.getElementById('expanded-content');
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 // Add event listener for mouse hover
 latestFiguresBox.addEventListener('mouseenter', expandLatestFigures);
@@ -119,12 +176,30 @@ latestFiguresBox.addEventListener('mouseleave', closeLatestFigures);
 
 // Expand latest figures
 function expandLatestFigures() {
-    // Wait 600ms for expansion, then add and hide appropriate elements
-    //sleep(600).then(() => {
-        warningIcon.classList.add('hide');
-        latestFiguresTitle.classList.add('hide');
-        expandedContent.classList.remove('hide');
-    //});
+    // Add and hide appropriate elements
+    warningIcon.classList.add('hide');
+    latestFiguresTitle.classList.add('hide');
+    expandedContent.classList.remove('hide');
+  
+    // Get the date
+    const date = new Date();
+
+    // Create string containing latest figures data
+    let htmlString = `
+    <tr>
+        <!--Current Date-->
+        <th style="padding-bottom: 1em;">${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}</th>
+    </tr>
+    <tr>
+        <!--COVID information-->
+        <th><h1>${latestFigures.newCases}</h1><br> new cases</th>
+        <th><h1>${latestFigures.totalCases}</h1><br> total cases</th>
+        <th><h1>${latestFigures.testsReceived}</h1><br> tests received</th>
+    </tr>
+    `;
+
+    // Add html string to table
+    expandedContent.innerHTML = htmlString;
 }
 
 // Close Latest figures
@@ -133,9 +208,4 @@ function closeLatestFigures() {
     warningIcon.classList.remove('hide');
     latestFiguresTitle.classList.remove('hide');
     expandedContent.classList.add('hide');
-}
-
-// Function for sleeping
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
 }

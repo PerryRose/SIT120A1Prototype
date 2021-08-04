@@ -15,7 +15,7 @@
     <div class="header">
         <!--Logo-->
         <h1 class="header-logo">
-            <a href="index.html">
+            <a href="">
                 COVID-19 VIC
             </a>
         </h1>
@@ -23,20 +23,26 @@
         <div class="header-items">
             <!--Hotspot Map-->
             <h3 class="header-item">
-                <a href="hotspot-map.html">
+                <a href="">
                     Hotspot Map
                 </a>
             </h3>
             <!--Symptoms Checker-->
             <h3 class="header-item">
-                <a href="symptoms-checker.html">
+                <a href="">
                     Symptoms Checker
                 </a>
             </h3>
             <!--Check in-->
             <h3 class="header-item">
-                <a href="index.html">
+                <a href="">
                     Check-In
+                </a>
+            </h3>
+            <!--Login-->
+            <h3 class="header-item">
+                <a href="">
+                    Login
                 </a>
             </h3>
             <!--Drop Down, hidden by default, only shown when screen small (Disabled for this prototype)-->
@@ -65,16 +71,7 @@
             </h4>
             <!--Expanded Content, hidden by default-->
             <table class="expanded-content hide" id="expanded-content">
-                <tr>
-                    <!--Current Date-->
-                    <th style="padding-bottom: 1em;">3 Aug 2021</th>
-                </tr>
-                <tr>
-                    <!--COVID information-->
-                    <th><h1>12</h1><br> new cases</th>
-                    <th><h1>250</h1><br> total cases</th>
-                    <th><h1>35.6k</h1><br> tests received</th>
-                </tr>
+
             </table>
         </div>
 
@@ -95,10 +92,12 @@
 
             <!--Search Bar-->
             <div class="exposure-site-search-box">
-                <input class="exposure-site-search-bar" type="text">
-                <button class="exposure-site-search-button">
+                <!--Search Title-->
+                <div class="exposre-site-search-title">
                     Search
-                </button>
+                </div> 
+                <!--Search Bar-->
+                <input class="exposure-site-search-bar" id="exposure-site-search-bar" type="text">
             </div>
 
             <!--Exposure Site List-->
