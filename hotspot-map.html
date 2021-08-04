@@ -5,10 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="widescreen.css"/>
-    <!-- <link rel="stylesheet" media="screen and (min-width: 900px)" type="text/css" href="widescreen.css"/>
-    <link rel="stylesheet" media="screen and (max-width: 900px)" type="text/css" href="smallscreen.css"/>
-    <link rel="stylesheet" media="screen and (max-width: 750px)" type="text/css" href="smallerscreen.css"/> -->
-    <title>Hotspot Map</title>
+    <title>Exposure Site Map</title>
 </head>
 <body>
     <!--Header-->
@@ -45,7 +42,7 @@
                     Login
                 </a>
             </h3>
-            <!--Drop Down, hidden by default, only shown when screen small (Disabled for this prototype)-->
+            <!--Drop Down, hidden by default, only shown when screen is small (Disabled for this prototype)-->
             <div class="dropdown">
                 <button onclick="myFunction()" class="dropbtn">...</button>
                 <div id="myDropdown" class="dropdown-content">
@@ -70,9 +67,7 @@
                 Latest Figures
             </h4>
             <!--Expanded Content, hidden by default-->
-            <table class="expanded-content hide" id="expanded-content">
-
-            </table>
+            <table class="expanded-content hide" id="expanded-content"></table>
         </div>
 
         <!--Content-->
@@ -120,10 +115,8 @@
     </div>
 
 </body>
-<script src="script.js"></script>
 <script src="map.js"></script>
 <script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArLUU_Rfo5GzRYYKgg57e-AFxTuHIQiso&callback=initMap">
 </script>
-<script src="https://unpkg.com/vue@next"></script>
 </html>
